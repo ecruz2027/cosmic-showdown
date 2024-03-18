@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <title>Cosmic Showdown</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Smooch Sans", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://wallpapers.com/images/hd/spooky-clouds-night-sky-moon-animation-qxx8yxaebiz0a0w2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative; /* Make body relative for absolute positioning */
+        }
+
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        canvas {
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust canvas styles */
+        }
+
+        .restart-button, .home-button {
+            position: absolute;
+            text-align: center;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:  #63056a;
+            color: #8300f5;
+            text-decoration: none;
+            font-size: 30px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        
+        .restart-button:hover, .home-button:hover {
+            background-color: white;
+        }
+
+        .restart-button {
+            bottom: -50px; /* Adjust bottom position */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+        }
+
+        .home-button {
+            bottom: -130px; /* Adjust bottom position */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Center horizontally */
+        }
+    </style>
+</head>
+<body>
+    <!-- red container div -->
+    <div class="canvas-container">
+        <!-- smaller red container div -->
+        <div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 20px;">
+            <!-- player heatlh -->
+            <div style="position: relative; height: 30px; width: 100%; display: flex; justify-content: flex-end;">
+                <div style="background-color: yellow; height: 30px; width: 100%;"></div>
+                <div id="playerHealth" style="position: absolute; background-color: blue; top: 0; right: 0; bottom: 0; width: 100%;"></div>
+            </div>   
+            <!-- timer -->
+            <div  id="timer" style="background-color: red; width: 100px; height: 100px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                10
+            </div>
+            <!-- enemy health -->
+            <div style="position: relative; height: 30px; width: 100%;">
+                <div style="background-color: yellow; height: 30px;"></div>
+                <div id="enemyHealth" style="position: absolute; background-color: blue; top: 0; right: 0; bottom: 0; left: 0;"></div>
+            </div>
+        </div>
+        <div id="displayText" style="position: absolute; color: white; align-items: center; justify-content: center; top: 0; right: 0; bottom: 0; left: 0; display: none; font-size: 100px;">Tie</div>
+        <canvas></canvas>
+    </div>
+
+    <!-- Restart and Home buttons -->
+    <a href="game.html" class="restart-button">Restart</a>
+    <a href="index.html" class="home-button">Home</a>
+
+    <script src="utility.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
