@@ -13,17 +13,19 @@ class Sprite {
     }
 
     draw() {
-        c.drawImage(
-            this.image, 
-            this.framesCurrent * (this.image.width / this.framesMax), 
-            0, 
-            this.image.width / this.framesMax, 
-            this.image.height, 
-            this.position.x - this.offset.x, 
-            this.position.y - this.offset.y, 
-            (this.image.width / this.framesMax), 
-            this.image.height
-            )
+        if (this.image.complete && this.image.naturalWidth !== 0) {
+            c.drawImage(
+                this.image, 
+                this.framesCurrent * (this.image.width / this.framesMax), 
+                0, 
+                this.image.width / this.framesMax, 
+                this.image.height, 
+                this.position.x - this.offset.x, 
+                this.position.y - this.offset.y, 
+                (this.image.width / this.framesMax), 
+                this.image.height
+            );
+        }
     }
 
     animateFrames() {
